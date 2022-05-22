@@ -1,0 +1,19 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "main": "server.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "concurrently \"nodemon .\" \"cd ../client && yarn start\""
+  },
+  "dependencies": {
+    "concurrently": "^7.2.0",
+    "cors": "^2.8.5",
+    "express": "^4.18.1",
+    "mongoose": "^6.3.3",
+    "node-fetch": "2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.16"
+  }
+}
