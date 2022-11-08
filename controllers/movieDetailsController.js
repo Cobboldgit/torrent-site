@@ -5,6 +5,10 @@ const movieDetailsController = async (req, response) => {
   const url = `https://yts.torrentbay.to/api/v2/movie_details.json?movie_id=${id}&with_images=true&with_cast=true`;
   if (id) {
     get_data(url, response);
+  } else {
+    response.send({
+      message: "No id provided",
+    });
   }
 };
 
@@ -18,7 +22,9 @@ const get_data = async (url, res) => {
       data: json.data,
     });
   } catch (error) {
-    console.log(error);
+    res.send({
+      message: error.message
+    })
   }
 };
 

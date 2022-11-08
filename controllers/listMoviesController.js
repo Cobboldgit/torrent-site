@@ -1,7 +1,7 @@
 const fetch = require("node-fetch");
 
 const listMoviesController = async (request, response) => {
-  const { page, term } = (await request.params) || 1;
+  const { page = 1, term = 0 } = await request.params;
 
   const url = `https://yts.torrentbay.to/api/v2/list_movies.json?page=${page}&&limit=50&&sort_by=year&&order_by=desc&&query_term=${term}`;
 
@@ -18,7 +18,9 @@ const get_data = async (url, res) => {
       data: json.data,
     });
   } catch (error) {
-    console.log(error);
+    res.send({
+      message: error.message,
+    });
   }
 };
 
