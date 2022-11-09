@@ -14,6 +14,9 @@ server.use(
   })
 );
 
+server.get('/', (req, res) => {
+  res.send('Hello, this api is owned by cobboldgit.git')
+})
 server.get("/list_movies/:page?/:term?", listMoviesController)
 server.get("/movie_details/:id", movieDetailsController)
 server.get("/movie_reviews/:id", movieReviewsContoller)
